@@ -15,9 +15,9 @@ def workout_generator(type_of_workout, num_exercises):
     try:
         if type_of_workout == 'legs':
             type_of_workout = 'Leg Workouts'
-        elif type_of_workout == 'pull' or type_of_workout == 'back' or type_of_workout =='arms':
+        if type_of_workout == 'pull' or type_of_workout == 'back' or type_of_workout =='arms':
             type_of_workout = 'Upper Body Pull Workout'
-        elif type_of_workout == 'push' or type_of_workout == 'chest' or type_of_workout == 'shoulders':
+        if type_of_workout == 'push' or type_of_workout == 'chest' or type_of_workout == 'shoulders':
             type_of_workout = 'Upper Body Push Workout'
 
         # Convert Specified Workout Column and workout_type into List
@@ -26,7 +26,8 @@ def workout_generator(type_of_workout, num_exercises):
 
         # Convert workout_list and workout_type into Set to eliminate repeating values), remove single 'Don't Use' value, and revert back to list
         workout_list = set(workout_list)
-        workout_list.remove('Dont Use')
+        if 'Dont Use' in workout_list:
+            workout_list.remove('Dont Use')
         workout_list = list(workout_list)
 
         workout_type = set(workout_type)
@@ -45,5 +46,3 @@ def workout_generator(type_of_workout, num_exercises):
 
 # Allows user to insert body part to work out and number of exercises
 print(workout_generator(input('What body part do you want to workout? '), input('How many exercises do you want to do? ')))
-
-    
