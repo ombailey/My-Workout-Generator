@@ -31,14 +31,15 @@ def workout_generator(type_of_workout, num_exercises):
         workout_list = list(workout_list)
 
         workout_type = set(workout_type)
-        workout_type.remove('Dont Use')
+        if 'Dont Use' in workout_type:
+            workout_type.remove('Dont Use')
         workout_type = list(workout_type)
 
         # Returns randomized workout of exercises for specified body part + the type of workout to be done.
-        rand_workout = ', '.join(map(str,random.sample(workout_list, num_exercises)))
+        rand_workout = '\n'.join(map(str,random.sample(workout_list, num_exercises)))
         rand_workout_type = ''.join(map(str,random.sample(workout_type, 1)))
 
-        return rand_workout + '\n'*2 + rand_workout_type
+        return 'Workout For Today' + '\n'*2 + rand_workout + '\n'*2 + rand_workout_type
 
     #  If user inputs wrong information.
     except:
