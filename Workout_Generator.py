@@ -11,7 +11,6 @@ df= df.fillna('Dont Use')
 # Asks the user what body part(s) they want to workout and how many exercises than generates a workout for them.
 def workout_generator(body_part_to_workout, num_exercises):
     final_workout = ''
-    final_workout_type =''
     num = 0
     # Create different steps for if one body part is specified or multiple.
     if 'and' in body_part_to_workout:
