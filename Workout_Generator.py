@@ -1,5 +1,4 @@
 import random
-import numpy as np
 import pandas as pd
 
 # Read the Excel file with workouts listed.
